@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Adom Executive Electrical Engineering Company</title>
+    <meta name="description" content="Read our latest blog posts about transformer installations, solar energy, electrical safety tips, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* === RESET & BASE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #f8f9fa; line-height: 1.8; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* === TOP HEADER === */
+        .top-header { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #e9ecef; }
+        .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-header .contact-info { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; }
+        .top-header .contact-item i { color: #e63946; font-size: 16px; width: 30px; height: 30px; border: 1px solid #e63946; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .top-header .contact-item i:hover { background: #e63946; color: #fff; }
+        .top-header .contact-item strong { font-weight: 700; display: block; font-size: 13px; color: #1a1a2e; }
+        .top-header .contact-item span { font-size: 12px; color: #6c757d; }
+
+        /* === MAIN HEADER === */
+        .main-header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 60px; width: auto; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; }
+        .nav-menu a { font-size: 15px; font-weight: 500; color: #1a1a2e; transition: 0.3s; position: relative; }
+        .nav-menu a:hover, .nav-menu a.active { color: #e63946; }
+        .nav-menu a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: #e63946; }
+        .btn-appointment { background: #e63946; color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-appointment:hover { background: #c1121f; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,57,70,0.3); }
+        .hamburger { display: none; font-size: 28px; cursor: pointer; color: #1a1a2e; }
+
+        /* === PAGE HERO === */
+        .page-hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); padding: 80px 0; text-align: center; color: #fff; }
+        .page-hero h1 { font-size: 48px; font-weight: 800; }
+        .breadcrumb { display: flex; justify-content: center; gap: 10px; color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 10px; }
+        .breadcrumb span { color: #f1c40f; }
+        .breadcrumb a:hover { color: #f1c40f; }
+
+        /* === BLOG CONTENT === */
+        .blog-section { padding: 60px 0; }
+        .blog-article { 
+            background: #fff; 
+            border-radius: 15px; 
+            padding: 40px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .blog-article:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .blog-article .post-meta { 
+            display: flex; 
+            gap: 20px; 
+            color: #6c757d; 
+            font-size: 14px; 
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .blog-article .post-meta i { color: #e63946; margin-right: 5px; }
+        .blog-article .post-meta span { display: inline-flex; align-items: center; }
+        .blog-article .post-category {
+            display: inline-block;
+            background: rgba(230,57,70,0.1);
+            color: #e63946;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .blog-article h2 { 
+            font-size: 32px; 
+            font-weight: 800; 
+            color: #1a1a2e; 
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .blog-article h2 a { color: #1a1a2e; transition: 0.3s; }
+        .blog-article h2 a:hover { color: #e63946; }
+        .blog-article .featured-image { 
+            border-radius: 12px; 
+            overflow: hidden; 
+            margin-bottom: 25px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .blog-article p { color: #4a4a5a; margin-bottom: 18px; font-size: 16px; }
+        .blog-article ul, .blog-article ol { 
+            margin: 15px 0 20px 25px; 
+            color: #4a4a5a;
+        }
+        .blog-article ul li, .blog-article ol li { margin-bottom: 8px; }
+        .blog-article .btn-back {
+            display: inline-block;
+            background: #e63946;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .blog-article .btn-back:hover { background: #c1121f; transform: translateY(-2px); }
+
+        /* === BLOG GRID (Index Page Style) === */
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .blog-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 220px; object-fit: cover; }
+        .blog-card .content { padding: 25px; }
+        .blog-card .content .date { font-size: 13px; color: #e63946; font-weight: 600; display: block; margin-bottom: 8px; }
+        .blog-card .content h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .blog-card .content h3 a { color: #1a1a2e; transition: 0.3s; }
+        .blog-card .content h3 a:hover { color: #e63946; }
+        .blog-card .content p { color: #6c757d; font-size: 14px; margin-bottom: 15px; }
+        .blog-card .content .read-more { color: #e63946; font-weight: 600; font-size: 14px; }
+        .blog-card .content .read-more:hover { color: #c1121f; }
+
+        /* === FOOTER === */
+        .footer { background: #0d1b2a; color: rgba(255,255,255,0.7); padding: 60px 0 0; border-top: 5px solid #f1c40f; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .footer h4 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+        .footer .divider { width: 30px; height: 2px; background: #f1c40f; margin-bottom: 20px; }
+        .footer p { font-size: 14px; line-height: 1.8; }
+        .footer .logo-footer img { height: 45px; margin-bottom: 15px; }
+        .footer .social-icons { display: flex; gap: 12px; margin-top: 20px; }
+        .footer .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #fff; transition: 0.3s; font-size: 16px; }
+        .footer .social-icons a:hover { background: #f1c40f; color: #0d1b2a; transform: translateY(-3px); }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: rgba(255,255,255,0.7); font-size: 14px; transition: 0.3s; }
+        .footer ul li a:hover { color: #f1c40f; padding-left: 5px; }
+        .footer .newsletter input { width: 100%; padding: 12px 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; margin-bottom: 12px; outline: none; }
+        .footer .newsletter input::placeholder { color: rgba(255,255,255,0.5); }
+        .footer .newsletter button { width: 100%; padding: 12px; border: none; border-radius: 30px; background: #f1c40f; color: #0d1b2a; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.3s; }
+        .footer .newsletter button:hover { background: #e63946; color: #fff; }
+        .footer-bottom { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 0; font-size: 14px; }
+        .footer-bottom .right { text-align: right; }
+        .footer-bottom a { color: #f1c40f; font-weight: 600; }
+        .footer-bottom a:hover { text-decoration: underline; }
+        .footer-contact-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .footer-contact-item { display: flex; align-items: center; gap: 15px; }
+        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; }
+        .footer-contact-item h4 { color: #fff; font-size: 16px; font-weight: 600; margin: 0; }
+        .footer-contact-item p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .blog-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: #fff; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 15px; }
+            .nav-menu.open { display: flex; }
+            .hamburger { display: block; }
+            .page-hero h1 { font-size: 32px; }
+            .blog-article { padding: 25px; }
+            .blog-article h2 { font-size: 24px; }
+            .blog-article .featured-image { height: 200px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-contact-bar { grid-template-columns: 1fr; }
+            .footer-bottom { grid-template-columns: 1fr; text-align: center; gap: 10px; }
+            .footer-bottom .right { text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .top-header .contact-info { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .blog-article .featured-image { height: 150px; }
+            .blog-article .post-meta { gap: 10px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<header class="top-header">
+    <div class="container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN HEADER -->
+<header class="main-header">
+    <div class="container">
+        <div class="logo">
+            <img 
+                src="images/logo.png" 
+                alt="Adom Electrical Logo" 
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/e63946/ffffff?text=ADOM+ELECTRICAL'"
+            />
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="team.html">Team</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-appointment">Get a Quote</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Blog</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <i class="fas fa-chevron-right"></i> 
+            <span>Blog</span>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG CONTENT -->
+<section class="blog-section">
+    <div class="container">
+        <!-- BLOG POST 1 -->
+        <article id="post1" class="blog-article">
+            <span class="post-category">Installation</span>
+            <h2>Transformer Installation Best Practices</h2>
+            <div class="post-meta">
+                <span><i class="fas fa-calendar-alt"></i> June 15, 2026</span>
+                <span><i class="fas fa-user"></i> Mark Quansah</span>
+                <span><i class="fas fa-tag"></i> Transformer, Installation, Safety</span>
+            </div>
+            <img 
+                src="images/blog1.jpg" 
+                alt="Transformer Installation" 
+                class="featured-image"
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400/e9ecef/1a1a2e?text=Transformer+Installation'"
+            />
+            <p><strong>Transformer installation is a critical task that requires careful planning, skilled execution, and strict adherence to safety protocols.</strong> Whether you're installing a transformer for a government project or a private facility, following best practices ensures safety, reliability, and longevity.</p>
+            
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">1. Site Assessment and Planning</h3>
+            <p>Before any installation begins, a thorough site assessment is essential. This includes:</p>
+            <ul>
+                <li><strong>Load Analysis:</strong> Calculate the total electrical load to determine the appropriate transformer size and capacity.</li>
+                <li><strong>Location Selection:</strong> Choose a location that provides adequate ventilation, drainage, and clearance for maintenance.</li>
+                <li><strong>Accessibility:</strong> Ensure the site is accessible for delivery, installation, and future maintenance.</li>
+                <li><strong>Environmental Factors:</strong> Consider temperature, humidity, and potential exposure to corrosive elements.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">2. Safety First</h3>
+            <p>Safety is paramount in transformer installation. Key safety measures include:</p>
+            <ul>
+                <li><strong>Lockout/Tagout Procedures:</strong> Ensure all power sources are de-energized and locked out before work begins.</li>
+                <li><strong>Personal Protective Equipment (PPE):</strong> All team members must wear appropriate PPE, including hard hats, safety glasses, insulated gloves, and flame-resistant clothing.</li>
+                <li><strong>Grounding:</strong> Proper grounding is essential to prevent electrical shock and equipment damage.</li>
+                <li><strong>Emergency Response Plan:</strong> Have a clear plan in place for emergencies, including first aid and fire extinguishers.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">3. Professional Installation</h3>
+            <p>Proper installation techniques ensure optimal performance and longevity:</p>
+            <ul>
+                <li><strong>Foundation:</strong> The transformer must be installed on a level, vibration-resistant foundation.</li>
+                <li><strong>Connections:</strong> All electrical connections must be properly torqued and insulated.</li>
+                <li><strong>Cooling System:</strong> Ensure proper oil levels and cooling system functionality for liquid-filled transformers.</li>
+                <li><strong>Testing:</strong> Conduct comprehensive testing including insulation resistance, turns ratio, and polarity tests.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">4. Post-Installation Inspection</h3>
+            <p>After installation, a thorough inspection is required:</p>
+            <ul>
+                <li><strong>Visual Inspection:</strong> Check for any visible damage or loose connections.</li>
+                <li><strong>Electrical Testing:</strong> Verify all electrical parameters are within specifications.</li>
+                <li><strong>Documentation:</strong> Maintain detailed records of installation procedures, test results, and maintenance schedules.</li>
+            </ul>
+
+            <p><strong>At Adom Executive Electrical Engineering Company, we follow these best practices on every project.</strong> Our experienced team ensures that every transformer installation is completed safely, efficiently, and to the highest standards. Contact us today for your transformer installation needs.</p>
+
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </article>
+
+        <!-- BLOG POST 2 -->
+        <article id="post2" class="blog-article">
+            <span class="post-category">Renewable Energy</span>
+            <h2>Solar Energy: The Future of Ghana</h2>
+            <div class="post-meta">
+                <span><i class="fas fa-calendar-alt"></i> June 8, 2026</span>
+                <span><i class="fas fa-user"></i> Mark Quansah</span>
+                <span><i class="fas fa-tag"></i> Solar Energy, Renewable, Sustainability</span>
+            </div>
+            <img 
+                src="images/blog2.jpg" 
+                alt="Solar Energy" 
+                class="featured-image"
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400/e9ecef/1a1a2e?text=Solar+Energy'"
+            />
+            <p><strong>Ghana is experiencing a significant shift towards renewable energy, with solar power emerging as a leading solution for both domestic and industrial applications.</strong> With abundant sunshine throughout the year, solar energy presents an incredible opportunity to reduce electricity costs, increase energy independence, and contribute to environmental sustainability.</p>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">Why Solar Energy Makes Sense for Ghana</h3>
+            <ul>
+                <li><strong>Abundant Sunshine:</strong> Ghana receives an average of 5-7 hours of peak sunlight daily, making it ideal for solar power generation.</li>
+                <li><strong>Rising Electricity Costs:</strong> Solar energy provides a hedge against increasing utility rates.</li>
+                <li><strong>Environmental Benefits:</strong> Solar power is clean, renewable, and reduces carbon footprint.</li>
+                <li><strong>Energy Independence:</strong> Solar panels reduce reliance on the national grid and protect against power outages.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">Applications of Solar Energy</h3>
+            <p>Solar energy can be used for various applications:</p>
+            <ul>
+                <li><strong>Residential Solar:</strong> Reduce electricity bills and power your home with clean energy.</li>
+                <li><strong>Commercial Solar:</strong> Businesses can reduce operational costs and demonstrate environmental responsibility.</li>
+                <li><strong>Industrial Solar:</strong> Large-scale solar installations for factories and industrial facilities.</li>
+                <li><strong>Off-Grid Solutions:</strong> Solar power for remote areas without access to the national grid.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">Benefits of Going Solar</h3>
+            <ul>
+                <li><strong>Cost Savings:</strong> Significant reduction in monthly electricity bills.</li>
+                <li><strong>Government Incentives:</strong> Tax benefits and incentives for renewable energy adoption.</li>
+                <li><strong>Low Maintenance:</strong> Solar panels require minimal maintenance and have a lifespan of 25+ years.</li>
+                <li><strong>Increased Property Value:</strong> Solar installations can increase property value.</li>
+                <li><strong>Environmental Impact:</strong> Reduce your carbon footprint and contribute to a sustainable future.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">Solar Power for Businesses</h3>
+            <p>Businesses in Ghana are increasingly turning to solar power to reduce operational costs and improve sustainability. Here's why:</p>
+            <ul>
+                <li><strong>Energy Cost Savings:</strong> Reduce monthly electricity expenses by up to 70%.</li>
+                <li><strong>Brand Image:</strong> Demonstrate commitment to sustainability and attract environmentally conscious customers.</li>
+                <li><strong>Reliability:</strong> Protect your business from power outages with solar + battery storage solutions.</li>
+            </ul>
+
+            <p><strong>At Adom Executive Electrical Engineering Company, we are committed to helping our clients transition to solar energy.</strong> We offer professional solar installation services for domestic and industrial applications. Our team will assess your energy needs, design the optimal solar system, and ensure professional installation. Contact us today to start your solar journey!</p>
+
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </article>
+
+        <!-- BLOG POST 3 -->
+        <article id="post3" class="blog-article">
+            <span class="post-category">Safety</span>
+            <h2>Electrical Safety Tips for Homeowners</h2>
+            <div class="post-meta">
+                <span><i class="fas fa-calendar-alt"></i> June 1, 2026</span>
+                <span><i class="fas fa-user"></i> Mark Quansah</span>
+                <span><i class="fas fa-tag"></i> Safety, Home, Tips</span>
+            </div>
+            <img 
+                src="images/blog3.jpg" 
+                alt="Electrical Safety" 
+                class="featured-image"
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400/e9ecef/1a1a2e?text=Electrical+Safety'"
+            />
+            <p><strong>Electrical safety is a critical aspect of maintaining a safe home environment.</strong> In Ghana, many homes face electrical hazards that can lead to fires, injuries, or even fatalities. As a homeowner, understanding and implementing basic electrical safety practices can protect your family and property.</p>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">1. Inspect Wiring and Outlets</h3>
+            <ul>
+                <li><strong>Check for Frayed Wires:</strong> Regularly inspect electrical cords for damage or fraying. Replace damaged cords immediately.</li>
+                <li><strong>Loose Outlets:</strong> If an outlet feels warm to the touch or plugs fall out easily, it's time to replace it.</li>
+                <li><strong>Overloaded Outlets:</strong> Avoid using too many devices in one outlet. Use power strips with built-in surge protection.</li>
+                <li><strong>Child Safety:</strong> Install tamper-resistant outlets or use outlet covers to protect children.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">2. Proper Use of Extension Cords</h3>
+            <ul>
+                <li><strong>Never Overload:</strong> Extension cords have a specific capacity. Overloading them can cause overheating and fires.</li>
+                <li><strong>Use Indoors Only:</strong> Some extension cords are not designed for outdoor use.</li>
+                <li><strong>Don't Run Under Rugs:</strong> Running cords under rugs can cause overheating and is a fire hazard.</li>
+                <li><strong>Check Ratings:</strong> Ensure the cord is rated for the device you are using.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">3. Know When to Replace Your Circuit Breaker</h3>
+            <ul>
+                <li><strong>Frequent Tripping:</strong> If your circuit breaker trips frequently, it could be a sign of overload or faulty wiring.</li>
+                <li><strong>Physical Damage:</strong> Check for signs of burning or damage to the breaker panel.</li>
+                <li><strong>Schedule an Inspection:</strong> If you haven't had your electrical system inspected in years, it's time for a check-up.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">4. Emergency Safety Tips</h3>
+            <ul>
+                <li><strong>Know Your Breaker Box:</strong> Know where your circuit breaker box is located and how to turn off power in an emergency.</li>
+                <li><strong>Fire Safety:</strong> Keep a fire extinguisher rated for electrical fires (Class C) in your home.</li>
+                <li><strong>Emergency Contacts:</strong> Keep the contact information for a licensed electrician handy.</li>
+                <li><strong>Stay Calm:</strong> In case of an electrical emergency, stay calm and call a professional.</li>
+            </ul>
+
+            <h3 style="color:#1a1a2e; margin-top:25px; font-size:22px;">5. When to Call a Professional</h3>
+            <ul>
+                <li><strong>Flickering Lights:</strong> Persistent flickering could indicate a serious problem.</li>
+                <li><strong>Burning Smell:</strong> A burning smell from outlets or appliances is a warning sign.</li>
+                <li><strong>Sparking:</strong> Sparks from outlets or appliances are dangerous and require immediate attention.</li>
+                <li><strong>Updates and Renovations:</strong> Any major electrical work should only be done by licensed professionals.</li>
+            </ul>
+
+            <p><strong>Your safety is our priority at Adom Executive Electrical Engineering Company.</strong> We offer professional electrical inspections and safety services for homes and businesses. Our team can identify and fix potential hazards before they become problems. If you need an electrical inspection, upgrades, or emergency services, contact us today!</p>
+
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </article>
+
+        <!-- BLOG CARD GRID VIEW (Optional - shows all posts as cards) -->
+        <div style="margin-top:60px; border-top:2px solid #e9ecef; padding-top:50px;">
+            <h2 style="text-align:center; font-size:28px; font-weight:800; color:#1a1a2e; margin-bottom:15px;">All Blog Posts</h2>
+            <p style="text-align:center; color:#6c757d; margin-bottom:40px;">Explore our full collection of articles and insights.</p>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img 
+                        src="images/blog1.jpg" 
+                        alt="Transformer Installation" 
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/400x220/e9ecef/1a1a2e?text=Transformer+Installation'"
+                    />
+                    <div class="content">
+                        <span class="date">June 15, 2026</span>
+                        <h3><a href="#post1">Transformer Installation Best Practices</a></h3>
+                        <p>Learn about the best practices for safe and efficient transformer installations.</p>
+                        <a href="#post1" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img 
+                        src="images/blog2.jpg" 
+                        alt="Solar Energy" 
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/400x220/e9ecef/1a1a2e?text=Solar+Energy'"
+                    />
+                    <div class="content">
+                        <span class="date">June 8, 2026</span>
+                        <h3><a href="#post2">Solar Energy: The Future of Ghana</a></h3>
+                        <p>Exploring the growing adoption of solar energy solutions in Ghana.</p>
+                        <a href="#post2" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img 
+                        src="images/blog3.jpg" 
+                        alt="Electrical Safety" 
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/400x220/e9ecef/1a1a2e?text=Electrical+Safety'"
+                    />
+                    <div class="content">
+                        <span class="date">June 1, 2026</span>
+                        <h3><a href="#post3">Electrical Safety Tips for Homeowners</a></h3>
+                        <p>Essential electrical safety tips every homeowner should know.</p>
+                        <a href="#post3" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-contact-bar">
+            <div class="footer-contact-item">
+                <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Give Us A Call</p></div>
+            </div>
+            <div class="footer-contact-item">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div><h4>markquansah80@gmail.com</h4><p>Drop Us a Line</p></div>
+            </div>
+            <div class="footer-contact-item">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div><h4>Accra Kasoa - Fetteh Mamfam</h4><p>Digital Address: CG-1650-3082</p></div>
+            </div>
+        </div>
+        <div class="footer-grid">
+            <div>
+                <div class="logo-footer">
+                    <img 
+                        src="images/logo.png" 
+                        alt="Adom Electrical Logo" 
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/e63946/ffffff?text=ADOM+ELECTRICAL'"
+                    />
+                </div>
+                <p>Adom Executive Electrical Engineering Company provides professional electrical services for domestic and industrial clients. Established in 2018.</p>
+                <div class="social-icons">
+                    <a href="https://web.facebook.com/profile.php?id=61592084150256" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Useful Links</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h4>Newsletter</h4>
+                <div class="divider"></div>
+                <p>Subscribe for updates and special offers.</p>
+                <input type="email" placeholder="Your Email Address" />
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>. Contact: 024 539 9914 / 054 135 2369</div>
+            <div class="right">Domestic &amp; Industrial Electrical Contractor</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+    document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
+
+    // Smooth scroll to blog posts when clicking Read More
+    document.querySelectorAll('a[href^="#post"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.style.borderLeft = '4px solid #e63946';
+                setTimeout(() => { target.style.borderLeft = 'none'; }, 2000);
+            }
+        });
+    });
+</script>
+</body>
+</html>
