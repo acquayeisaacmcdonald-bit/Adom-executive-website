@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Adom Executive Electrical Engineering Company</title>
+    <meta name="description" content="Learn about Adom Executive Electrical Engineering Company, established in 2018. We specialize in transformer installations, wiring, solar, and training." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Copy the exact same CSS from index.html here */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* ... (copy all styles from index.html) ... */
+        .top-header { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #e9ecef; }
+        .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-header .contact-info { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; }
+        .top-header .contact-item i { color: #e63946; font-size: 16px; width: 30px; height: 30px; border: 1px solid #e63946; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .top-header .contact-item i:hover { background: #e63946; color: #fff; }
+        .top-header .contact-item strong { font-weight: 700; display: block; font-size: 13px; color: #1a1a2e; }
+        .top-header .contact-item span { font-size: 12px; color: #6c757d; }
+        .main-header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; }
+        .nav-menu { display: flex; align-items: center; gap: 30px; }
+        .nav-menu a { font-size: 15px; font-weight: 500; color: #1a1a2e; transition: 0.3s; position: relative; }
+        .nav-menu a:hover, .nav-menu a.active { color: #e63946; }
+        .nav-menu a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: #e63946; }
+        .btn-appointment { background: #e63946; color: #fff !important; padding: 12px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-appointment:hover { background: #c1121f; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,57,70,0.3); }
+        .hamburger { display: none; font-size: 28px; cursor: pointer; color: #1a1a2e; }
+        .about-hero { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); padding: 80px 0; text-align: center; color: #fff; }
+        .about-hero h1 { font-size: 48px; font-weight: 800; }
+        .breadcrumb { display: flex; justify-content: center; gap: 10px; color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 10px; }
+        .breadcrumb span { color: #f1c40f; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 80px 0; }
+        .about-grid img { border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .about-grid h2 { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .about-grid h2 span { color: #f1c40f; }
+        .about-grid p { color: #6c757d; margin-bottom: 20px; }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; }
+        .feature-item { display: flex; gap: 15px; align-items: flex-start; }
+        .feature-item .icon { width: 50px; height: 50px; min-width: 50px; background: rgba(230,57,70,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #e63946; font-size: 20px; }
+        .feature-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 5px; }
+        .feature-item p { font-size: 14px; margin: 0; }
+        .spec-section { background: #0d1b2a; color: #fff; padding: 80px 0; }
+        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .spec-grid h2 { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .spec-grid p { color: rgba(255,255,255,0.7); margin-bottom: 30px; }
+        .spec-features { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .spec-feature { display: flex; gap: 15px; align-items: flex-start; }
+        .spec-feature .icon { width: 50px; height: 50px; min-width: 50px; background: rgba(241,196,15,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 20px; }
+        .spec-feature h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+        .spec-feature p { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0; }
+
+        /* === VIDEO PLAYER STYLES === */
+        .video-wrapper {
+            width: 100%;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #0d1b2a;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-wrapper .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+            transition: 0.3s;
+        }
+        .video-wrapper .video-thumbnail:hover {
+            transform: scale(1.02);
+        }
+        .video-wrapper .play-btn-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #f1c40f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #0d1b2a;
+            box-shadow: 0 0 0 0 rgba(241,196,15,0.7);
+            animation: pulse 2s infinite;
+            transition: 0.3s;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .video-wrapper .play-btn-overlay i {
+            margin-left: 5px;
+        }
+        .video-wrapper .play-btn-overlay:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(241,196,15,0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(241,196,15,0); }
+            100% { box-shadow: 0 0 0 0 rgba(241,196,15,0); }
+        }
+        .video-wrapper .video-container {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .video-wrapper .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+        .video-wrapper .video-container.playing {
+            display: block;
+        }
+        .video-wrapper .video-thumbnail.hidden {
+            display: none;
+        }
+        .video-wrapper .video-title {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 20px;
+            border-radius: 30px;
+            z-index: 2;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 80px 0; }
+        .process-step { text-align: center; padding: 30px 20px; border-radius: 15px; transition: 0.3s; position: relative; }
+        .process-step:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .process-step .step-number { font-size: 60px; font-weight: 900; color: rgba(241,196,15,0.1); position: absolute; top: 10px; right: 20px; line-height: 1; }
+        .process-step .step-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        .process-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
+        .process-step p { font-size: 14px; color: #6c757d; }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 80px 0; }
+        .team-member { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
+        .team-member:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .team-member img { width: 100%; height: 300px; object-fit: cover; }
+        .team-member .info { padding: 25px 20px; }
+        .team-member .info h3 { font-size: 20px; font-weight: 700; margin-bottom: 5px; }
+        .team-member .info p { color: #e63946; font-weight: 500; font-size: 14px; }
+        .team-member .social { display: flex; justify-content: center; gap: 12px; margin-top: 15px; }
+        .team-member .social a { width: 36px; height: 36px; border: 1px solid #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #6c757d; transition: 0.3s; }
+        .team-member .social a:hover { background: #e63946; color: #fff; border-color: #e63946; }
+        /* Footer styles (copy from index.html) */
+        .footer { background: #0d1b2a; color: rgba(255,255,255,0.7); padding: 60px 0 0; border-top: 5px solid #f1c40f; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .footer h4 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+        .footer .divider { width: 30px; height: 2px; background: #f1c40f; margin-bottom: 20px; }
+        .footer p { font-size: 14px; line-height: 1.8; }
+        .footer .logo-footer img { height: 45px; margin-bottom: 15px; }
+        .footer .social-icons { display: flex; gap: 12px; margin-top: 20px; }
+        .footer .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #fff; transition: 0.3s; font-size: 16px; }
+        .footer .social-icons a:hover { background: #f1c40f; color: #0d1b2a; transform: translateY(-3px); }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: rgba(255,255,255,0.7); font-size: 14px; transition: 0.3s; }
+        .footer ul li a:hover { color: #f1c40f; padding-left: 5px; }
+        .footer .newsletter input { width: 100%; padding: 12px 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; margin-bottom: 12px; outline: none; }
+        .footer .newsletter input::placeholder { color: rgba(255,255,255,0.5); }
+        .footer .newsletter button { width: 100%; padding: 12px; border: none; border-radius: 30px; background: #f1c40f; color: #0d1b2a; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.3s; }
+        .footer .newsletter button:hover { background: #e63946; color: #fff; }
+        .footer-bottom { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 0; font-size: 14px; }
+        .footer-bottom .right { text-align: right; }
+        .footer-bottom a { color: #f1c40f; font-weight: 600; }
+        .footer-bottom a:hover { text-decoration: underline; }
+        .footer-contact-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .footer-contact-item { display: flex; align-items: center; gap: 15px; }
+        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; }
+        .footer-contact-item h4 { color: #fff; font-size: 16px; font-weight: 600; margin: 0; }
+        .footer-contact-item p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
+        .btn-primary { display: inline-block; background: #e63946; color: #fff; padding: 14px 35px; border-radius: 30px; font-weight: 600; font-size: 15px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #c1121f; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(230,57,70,0.3); }
+        .tag { display: inline-block; background: rgba(230,57,70,0.1); color: #e63946; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 15px; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 38px; font-weight: 800; color: #1a1a2e; margin-bottom: 15px; }
+        .section-header p { color: #6c757d; }
+
+        @media (max-width: 1024px) { .about-grid, .spec-grid { grid-template-columns: 1fr; } .process-grid, .team-grid { grid-template-columns: 1fr 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { 
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: #fff; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 15px; } 
+            .nav-menu.open { display: flex; } 
+            .hamburger { display: block; } 
+            .about-grid h2, .spec-grid h2 { font-size: 28px; } 
+            .features-grid, .spec-features { grid-template-columns: 1fr; } 
+            .process-grid, .team-grid { grid-template-columns: 1fr; } 
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; } 
+            .footer-contact-bar { grid-template-columns: 1fr; } 
+            .footer-bottom { grid-template-columns: 1fr; text-align: center; gap: 10px; } 
+            .footer-bottom .right { text-align: center; }
+            .video-wrapper .play-btn-overlay { width: 60px; height: 60px; font-size: 24px; }
+            .video-wrapper .video-title { font-size: 14px; padding: 5px 15px; white-space: normal; }
+        }
+        @media (max-width: 480px) { .top-header .contact-info { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    </style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<header class="top-header">
+    <div class="container">
+        <div class="contact-info">
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div></div>
+            <div class="contact-item"><i class="fas fa-phone-alt"></i><div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div></div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN HEADER -->
+<header class="main-header">
+    <div class="container">
+        <div class="logo"><img src="images/logo.png" alt="Adom Electrical Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/e63946/ffffff?text=ADOM+ELECTRICAL'" /></div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="team.html">Team</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-appointment">Get a Quote</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>About Us</span></div>
+    </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="container" style="padding:80px 20px;">
+    <div class="about-grid">
+        <img src="images/aboutimage1.jpeg" alt="About Adom Electrical" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x500/e9ecef/1a1a2e?text=Adom+Electrical+Team'" />
+        <div>
+            <span class="tag">Welcome To Adom Executive</span>
+            <h2>Your Trusted <span>Electrical Engineering</span> Partner</h2>
+            <p>Adom Executive Electrical Engineering Company was established on <strong>27th January 2018</strong> with a mission to provide top-quality electrical services. We have successfully completed projects including <strong>Kaneshe District meter replacement</strong>, <strong>Kasoa District meter replacement</strong>, and residential projects for clients like <strong>Dr. Ghansah</strong> in Accra Kasoa and Ajumako.</p>
+            <p>We are currently working on road relocation projects at <strong>Ajumako Enyan-Esiam District</strong> and many more.</p>
+            <div class="features-grid">
+                <div class="feature-item"><div class="icon"><i class="fas fa-certificate"></i></div><div><h4>Certified Professionals</h4><p>Licensed and experienced electricians</p></div></div>
+                <div class="feature-item"><div class="icon"><i class="fas fa-clock"></i></div><div><h4>24/7 Availability</h4><p>Emergency response team always ready</p></div></div>
+                <div class="feature-item"><div class="icon"><i class="fas fa-tools"></i></div><div><h4>Modern Equipment</h4><p>State-of-the-art tools for every project</p></div></div>
+                <div class="feature-item"><div class="icon"><i class="fas fa-shield-alt"></i></div><div><h4>Safety First</h4><p>Full compliance with safety standards</p></div></div>
+            </div>
+            <a href="contact.html" class="btn-primary">Get a Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- SPECIALIZATION WITH VIDEO PLAYER -->
+<section class="spec-section">
+    <div class="container">
+        <div class="spec-grid">
+            <div>
+                <span class="tag" style="background:rgba(241,196,15,0.2);color:#f1c40f;">Our Specialization</span>
+                <h2>Comprehensive <span style="color:#f1c40f;">Electrical Services</span> For All Needs</h2>
+                <p>We specialize in both domestic and industrial electrical installations. From transformer installations to house wiring, solar power systems, and training programs.</p>
+                <div class="spec-features">
+                    <div class="spec-feature"><div class="icon"><i class="fas fa-bolt"></i></div><div><h4>Transformer Installations</h4><p>Private and government projects</p></div></div>
+                    <div class="spec-feature"><div class="icon"><i class="fas fa-home"></i></div><div><h4>House & Industrial Wiring</h4><p>Professional wiring solutions</p></div></div>
+                    <div class="spec-feature"><div class="icon"><i class="fas fa-solar-panel"></i></div><div><h4>Solar Installations</h4><p>Domestic and industrial solar systems</p></div></div>
+                    <div class="spec-feature"><div class="icon"><i class="fas fa-graduation-cap"></i></div><div><h4>Training Programs</h4><p>Electrical apprenticeship and student training</p></div></div>
+                </div>
+            </div>
+            <!-- VIDEO SECTION - Click to Play (GitHub hosted video) -->
+            <div style="background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;text-align:center;min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <div class="video-wrapper" id="videoWrapper" onclick="toggleVideo()">
+                    <!-- Video Thumbnail -->
+                    <img 
+                        class="video-thumbnail" 
+                        id="videoThumbnail"
+                        src="images/video-thumbnail.jpg" 
+                        alt="Watch Our Work - Electrical Installation"
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/e9ecef/1a1a2e?text=Watch+Our+Work'"
+                    />
+                    <!-- Play Button Overlay -->
+                    <div class="play-btn-overlay" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <!-- Video Title -->
+                    <div class="video-title">▶ Watch Our Work</div>
+                    <!-- Video Container -->
+                    <div class="video-container" id="videoContainer">
+                        <video 
+                            id="mainVideo"
+                            controls
+                            playsinline
+                            preload="metadata"
+                            style="width:100%;height:100%;object-fit:cover;background:#000;border-radius:12px;"
+                        >
+                            <!-- GitHub hosted video - REPLACE THE URL BELOW -->
+                            <source src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/images/promotional-video.mp4" type="video/mp4">
+                            <!-- Fallback if video doesn't load -->
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <h3 style="color:#fff;font-size:22px;font-weight:700;margin-top:20px;">Watch Our Work</h3>
+                <p style="color:rgba(255,255,255,0.6);font-size:14px;">See how we handle complex electrical projects</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="container" style="padding:80px 20px;">
+    <div class="section-header"><span class="tag">Our Process</span><h2>How We Works</h2><p>We follow a systematic approach to ensure every project is completed efficiently and safely.</p></div>
+    <div class="process-grid">
+        <div class="process-step"><span class="step-number">01</span><img class="step-img" src="images/boss.png" alt="Consultation" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/e9ecef/1a1a2e?text=Consultation'" /><h3>Consultation &amp; Quotation</h3><p>We assess your needs and provide a detailed quote.</p></div>
+        <div class="process-step"><span class="step-number">02</span><img class="step-img" src="images/installation.png" alt="Installation" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/e9ecef/1a1a2e?text=Installation'" /><h3>Professional Installation</h3><p>Our certified team executes the project with precision.</p></div>
+        <div class="process-step"><span class="step-number">03</span><img class="step-img" src="images/completion.png" alt="completion" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/e9ecef/1a1a2e?text=Completion'" /><h3>Testing &amp; Handover</h3><p>We test thoroughly and ensure your complete satisfaction.</p></div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section style="background:#f8f9fa;padding:80px 0;">
+    <div class="container">
+        <div class="section-header"><span class="tag">Our Team</span><h2>Meet Our Professionals</h2><p>Our team of certified electricians and engineers is dedicated to delivering excellence.</p></div>
+        <div class="team-grid">
+            <div class="team-member"><img src="images/gallery/39.jpg" alt="Lead Engineer" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/e9ecef/1a1a2e?text=Mark+Quansah'" /><div class="info"><h3>Mark Quansah</h3><p>Lead Engineer / Director</p><div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+            <div class="team-member"><img src="images/senior.jpeg" alt="Senior Electrician" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/e9ecef/1a1a2e?text=Godfred+Gyasi'" /><div class="info"><h3>Godfred Gyasi</h3><p>Lead Technician</p><div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+            <div class="team-member"><img src="images/gallery/lead.png" alt="Project Manager" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/e9ecef/1a1a2e?text=Frank+O.Abban'" /><div class="info"><h3>Frank O.Abban</h3><p>Project Supervisor</p><div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-contact-bar">
+            <div class="footer-contact-item"><div class="icon"><i class="fas fa-phone-alt"></i></div><div><h4>024 286 2993 / 026 286 2993</h4><p>Give Us A Call</p></div></div>
+            <div class="footer-contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><h4>markquansah80@gmail.com</h4><p>Drop Us a Line</p></div></div>
+            <div class="footer-contact-item"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Accra Kasoa - Fetteh Mamfam</h4><p>Digital Address: CG-1650-3082</p></div></div>
+        </div>
+        <div class="footer-grid">
+            <div><div class="logo-footer"><img src="images/logo.png" alt="Adom Electrical Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/e63946/ffffff?text=ADOM+ELECTRICAL'" /></div><p>Adom Executive Electrical Engineering Company provides professional electrical services for domestic and industrial clients. Established in 2018.</p><div class="social-icons"><a href="https://web.facebook.com/profile.php?id=61592084150256" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
+            <div><h4>Quick Links</h4><div class="divider"></div><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Useful Links</h4><div class="divider"></div><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Disclaimer</a></li><li><a href="#">Support</a></li><li><a href="#">FAQ</a></li></ul></div>
+            <div class="newsletter"><h4>Newsletter</h4><div class="divider"></div><p>Subscribe for updates and special offers.</p><input type="email" placeholder="Your Email Address" /><button>Subscribe</button></div>
+        </div>
+        <div class="footer-bottom"><div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>. Contact: 024 539 9914 / 054 135 2369</div><div class="right">Domestic &amp; Industrial Electrical Contractor</div></div>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+    document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
+
+    // ===== VIDEO PLAYER FUNCTIONALITY =====
+    const videoWrapper = document.getElementById('videoWrapper');
+    const videoContainer = document.getElementById('videoContainer');
+    const videoThumbnail = document.getElementById('videoThumbnail');
+    const playBtn = document.getElementById('playBtn');
+    const mainVideo = document.getElementById('mainVideo');
+    let isPlaying = false;
+
+    function toggleVideo() {
+        if (!isPlaying) {
+            // Show video container, hide thumbnail and play button
+            videoContainer.classList.add('playing');
+            videoThumbnail.classList.add('hidden');
+            playBtn.style.display = 'none';
+            mainVideo.play();
+            isPlaying = true;
+        } else {
+            // Pause video and show thumbnail again
+            mainVideo.pause();
+            videoContainer.classList.remove('playing');
+            videoThumbnail.classList.remove('hidden');
+            playBtn.style.display = 'flex';
+            isPlaying = false;
+        }
+    }
+
+    // Handle video end - reset to thumbnail
+    mainVideo.addEventListener('ended', function() {
+        videoContainer.classList.remove('playing');
+        videoThumbnail.classList.remove('hidden');
+        playBtn.style.display = 'flex';
+        isPlaying = false;
+    });
+
+    // Handle video pause (user clicks pause button)
+    mainVideo.addEventListener('pause', function() {
+        // Only reset if video is paused but not ended
+        if (!mainVideo.ended) {
+            videoContainer.classList.remove('playing');
+            videoThumbnail.classList.remove('hidden');
+            playBtn.style.display = 'flex';
+            isPlaying = false;
+        }
+    });
+
+    // Handle video play (user clicks play button in video controls)
+    mainVideo.addEventListener('play', function() {
+        videoContainer.classList.add('playing');
+        videoThumbnail.classList.add('hidden');
+        playBtn.style.display = 'none';
+        isPlaying = true;
+    });
+
+    // Prevent video wrapper click when clicking video controls
+    document.querySelector('.video-wrapper video')?.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    console.log('Video player initialized. Replace the video URL with your GitHub hosted video.');
+    console.log('Current video source: ' + mainVideo.querySelector('source')?.src);
+</script>
+</body>
+</html>
