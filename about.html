@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8" />
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Adom Executive Electrical Engineering Company</title>
     <meta name="description" content="Learn about Adom Executive Electrical Engineering Company, established in 2018. We specialize in transformer installations, wiring, solar, and training." />
@@ -237,12 +237,6 @@
 
 <!-- TOP HEADER -->
 <header class="top-header">
-        <div class="container">
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div>
-            </div>
     <div class="container">
         <div class="contact-info">
             <div class="contact-item whatsapp" onclick="openWhatsApp()">
@@ -270,7 +264,7 @@
             <a href="about.html" class="active">About Us</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
-			<a href="gallery.html">Gallery</a>
+            <a href="gallery.html">Gallery</a>
             <a href="blog.html">Blog</a>
             <a href="team.html">Team</a>
             <a href="pricing.html">Pricing</a>
@@ -350,7 +344,8 @@
                             preload="metadata"
                             style="width:100%;height:100%;object-fit:cover;background:#000;border-radius:12px;"
                         >
-                            <source src="https://github.com/acquayeisaacmcdonald-bit/Adom-executive-website/blob/main/images/promotional-video.mp4" type="video/mp4">
+                            <!-- ===== FIXED: Using Raw GitHub URL ===== -->
+                            <source src="https://raw.githubusercontent.com/acquayeisaacmcdonald-bit/Adom-executive-website/main/images/promotional-video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -423,8 +418,6 @@
     document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
 
     // ===== EVENT HANDLERS =====
-    
-    // WhatsApp - Opens WhatsApp chat with the business number
     function openWhatsApp() {
         const phoneNumber = '233242862993';
         const message = 'Hello, I would like to inquire about your electrical services.';
@@ -432,7 +425,6 @@
         window.open(url, '_blank');
     }
 
-    // Call - Initiates a phone call
     function makeCall() {
         const phoneNumber = '0242862993';
         if (window.innerWidth < 768) {
@@ -442,7 +434,6 @@
         }
     }
 
-    // Email - Opens email client
     function sendEmail() {
         const email = 'markquansah80@gmail.com';
         const subject = 'Inquiry about Electrical Services';
