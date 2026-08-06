@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Adom Executive Electrical Engineering Company</title>
     <meta name="description" content="Professional electrical contractor for domestic and industrial projects. Transformer installations, house wiring, solar, and training. Based in Accra Kasoa, Ghana." />
@@ -21,11 +22,16 @@
         .top-header { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #e9ecef; }
         .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-header .contact-info { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; }
+        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; cursor: pointer; transition: 0.3s; padding: 5px 10px; border-radius: 8px; }
+        .top-header .contact-item:hover { background: rgba(0,0,0,0.05); }
         .top-header .contact-item i { color: #e63946; font-size: 16px; width: 30px; height: 30px; border: 1px solid #e63946; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .top-header .contact-item i:hover { background: #e63946; color: #fff; }
+        .top-header .contact-item:hover i { background: #e63946; color: #fff; }
         .top-header .contact-item strong { font-weight: 700; display: block; font-size: 13px; color: #1a1a2e; }
         .top-header .contact-item span { font-size: 12px; color: #6c757d; }
+        .top-header .contact-item.whatsapp i { color: #25D366; border-color: #25D366; }
+        .top-header .contact-item.whatsapp:hover i { background: #25D366; color: #fff; }
+        .top-header .contact-item.call i { color: #e63946; border-color: #e63946; }
+        .top-header .contact-item.call:hover i { background: #e63946; color: #fff; }
 
         /* === MAIN HEADER === */
         .main-header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -99,10 +105,10 @@
             overflow-x: auto; 
             scroll-behavior: smooth; 
             padding: 20px 10px;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        .gallery-wrapper::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .gallery-wrapper::-webkit-scrollbar { display: none; }
         .gallery-wrapper img { 
             flex: 0 0 auto; 
             height: 220px; 
@@ -192,10 +198,280 @@
         .footer-bottom a { color: #f1c40f; font-weight: 600; }
         .footer-bottom a:hover { text-decoration: underline; }
         .footer-contact-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .footer-contact-item { display: flex; align-items: center; gap: 15px; }
-        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; }
+        .footer-contact-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; padding: 10px 15px; border-radius: 10px; }
+        .footer-contact-item:hover { background: rgba(255,255,255,0.05); }
+        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; transition: 0.3s; }
+        .footer-contact-item:hover .icon { background: rgba(241,196,15,0.1); transform: scale(1.05); }
+        .footer-contact-item .icon.whatsapp-icon { border-color: #25D366; color: #25D366; }
+        .footer-contact-item:hover .icon.whatsapp-icon { background: rgba(37,211,102,0.1); }
+        .footer-contact-item .icon.call-icon { border-color: #e63946; color: #e63946; }
+        .footer-contact-item:hover .icon.call-icon { background: rgba(230,57,70,0.1); }
         .footer-contact-item h4 { color: #fff; font-size: 16px; font-weight: 600; margin: 0; }
         .footer-contact-item p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
+
+        /* === CHATBOT STYLES === */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+        }
+        .chatbot-toggle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(230,57,70,0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(230,57,70,0.5);
+        }
+        .chatbot-toggle .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #f1c40f;
+            color: #0d1b2a;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #0d1b2a;
+        }
+        .chatbot-toggle .fa-times {
+            display: none;
+        }
+        .chatbot-toggle.active .fa-comment-dots {
+            display: none;
+        }
+        .chatbot-toggle.active .fa-times {
+            display: block;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230,57,70,0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(230,57,70,0); }
+            100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
+        }
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: slideUp 0.3s ease;
+        }
+        .chatbot-window.open {
+            display: flex;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .chatbot-header {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: #fff;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid #f1c40f;
+            flex-shrink: 0;
+        }
+        .chatbot-header .info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .chatbot-header .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1c40f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #0d1b2a;
+            font-weight: 700;
+        }
+        .chatbot-header .name {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .chatbot-header .status {
+            font-size: 12px;
+            color: #7bed9f;
+        }
+        .chatbot-header .close-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 5px;
+        }
+        .chatbot-header .close-btn:hover {
+            color: #fff;
+            transform: rotate(90deg);
+        }
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .chatbot-messages::-webkit-scrollbar {
+            width: 5px;
+        }
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: #e63946;
+            border-radius: 10px;
+        }
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: messageIn 0.3s ease;
+        }
+        @keyframes messageIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .message.bot {
+            background: #ffffff;
+            color: #1a1a2e;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .message.bot .bot-icon {
+            display: inline-block;
+            margin-right: 6px;
+            color: #f1c40f;
+        }
+        .message.user {
+            background: #e63946;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .message .quick-reply {
+            display: inline-block;
+            background: rgba(230,57,70,0.1);
+            color: #e63946;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 4px 4px 0 0;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .message .quick-reply:hover {
+            background: #e63946;
+            color: #fff;
+        }
+        .chatbot-input {
+            padding: 15px 20px;
+            background: #fff;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .chatbot-input input:focus {
+            border-color: #e63946;
+            box-shadow: 0 0 0 3px rgba(230,57,70,0.1);
+        }
+        .chatbot-input input::placeholder {
+            color: #adb5bd;
+        }
+        .chatbot-input button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+        .chatbot-input button:hover {
+            background: #c1121f;
+            transform: scale(1.05);
+        }
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            padding: 10px 16px;
+            background: #ffffff;
+            border-radius: 15px;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            gap: 4px;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #adb5bd;
+            display: inline-block;
+            animation: typingBounce 1.4s infinite both;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
 
         /* === RESPONSIVE === */
         @media (max-width: 1024px) {
@@ -221,6 +497,23 @@
             .gallery-nav { width: 35px; height: 35px; font-size: 14px; }
             .gallery-nav.prev { left: 5px; }
             .gallery-nav.next { right: 5px; }
+            .chatbot-window {
+                width: 100%;
+                height: 100%;
+                max-height: 90vh;
+                bottom: 70px;
+                right: 0;
+                border-radius: 15px 15px 0 0;
+            }
+            .chatbot-container {
+                bottom: 15px;
+                right: 15px;
+            }
+            .chatbot-toggle {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
         }
         @media (max-width: 480px) {
             .top-header .contact-info { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -241,11 +534,17 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div>
             </div>
-            <div class="contact-item">
+	<div class="container">
+        <div class="contact-info">
+            <div class="contact-item whatsapp" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                <div><strong>024 286 2993 / 026 286 2993</strong><span>WhatsApp Us</span></div>
+            </div>
+            <div class="contact-item call" onclick="makeCall()">
                 <i class="fas fa-phone-alt"></i>
                 <div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" onclick="sendEmail()">
                 <i class="fas fa-envelope"></i>
                 <div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div>
             </div>
@@ -268,6 +567,7 @@
             <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
+            <a href="gallery.html">Gallery</a>
             <a href="blog.html">Blog</a>
             <a href="team.html">Team</a>
             <a href="pricing.html">Pricing</a>
@@ -399,7 +699,7 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
             <div class="gallery-wrapper" id="galleryWrapper">
-                <!-- 40 Unique Images - Replace with your actual images -->
+                <!-- 40 Unique Images -->
                 <img src="images/gallery/1.jpg" alt="Project 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+1'" />
                 <img src="images/gallery/2.jpg" alt="Project 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+2'" />
                 <img src="images/gallery/3.jpg" alt="Project 3" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+3'" />
@@ -414,8 +714,8 @@
                 <img src="images/gallery/12.jpg" alt="Project 12" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+12'" />
                 <img src="images/gallery/13.jpg" alt="Project 13" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+13'" />
                 <img src="images/gallery/14.jpg" alt="Project 14" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+14'" />
-                <img src="images/gallery/15.jpg" alt="Project 15" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+15'" />
-                <img src="images/gallery/16.jpg" alt="Project 16" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+16'" />
+                <img src="images/gallery/015.jpg" alt="Project 15" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+15'" />
+                <img src="images/gallery/016.jpg" alt="Project 16" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+16'" />
                 <img src="images/gallery/17.jpg" alt="Project 17" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+17'" />
                 <img src="images/gallery/18.jpg" alt="Project 18" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+18'" />
                 <img src="images/gallery/19.jpg" alt="Project 19" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x220/e63946/ffffff?text=Project+19'" />
@@ -444,6 +744,9 @@
         </div>
         <!-- Dot Navigation -->
         <div class="gallery-dots" id="galleryDots"></div>
+        <div style="text-align:center;margin-top:20px;">
+            <a href="gallery.html" class="btn-primary" style="display:inline-block;">View Full Gallery →</a>
+        </div>
     </div>
 </section>
 
@@ -512,17 +815,17 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-contact-bar">
-            <div class="footer-contact-item">
-                <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                <div><h4>024 286 2993 / 026 286 2993</h4><p>Give Us A Call</p></div>
+            <div class="footer-contact-item" onclick="openWhatsApp()">
+                <div class="icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Chat on WhatsApp</p></div>
             </div>
-            <div class="footer-contact-item">
+            <div class="footer-contact-item" onclick="makeCall()">
+                <div class="icon call-icon"><i class="fas fa-phone-alt"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Call Us Now</p></div>
+            </div>
+            <div class="footer-contact-item" onclick="sendEmail()">
                 <div class="icon"><i class="fas fa-envelope"></i></div>
-                <div><h4>markquansah80@gmail.com</h4><p>Drop Us a Line</p></div>
-            </div>
-            <div class="footer-contact-item">
-                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div><h4>Accra Kasoa - Fetteh Mamfam</h4><p>Digital Address: CG-1650-3082</p></div>
+                <div><h4>markquansah80@gmail.com</h4><p>Send Your Mail</p></div>
             </div>
         </div>
         <div class="footer-grid">
@@ -549,6 +852,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="projects.html">Projects</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -574,24 +878,87 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>. Contact: 024 539 9914 / 054 135 2369</div>
-            <div class="right">Domestic &amp; Industrial Electrical Contractor</div>
+            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>.</div>
+            <div class="right">
+                <span onclick="openWhatsApp()" style="cursor:pointer;color:#25D366;font-weight:600;">WhatsApp</span> | 
+                <span onclick="makeCall()" style="cursor:pointer;color:#e63946;font-weight:600;">Call</span> | 
+                <span onclick="sendEmail()" style="cursor:pointer;color:#f1c40f;font-weight:600;">Email</span>
+            </div>
         </div>
     </div>
 </footer>
+
+<!-- ===== CHATBOT ===== -->
+<div class="chatbot-container">
+    <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()" aria-label="Toggle chatbot">
+        <i class="fas fa-comment-dots"></i>
+        <i class="fas fa-times"></i>
+        <span class="badge">1</span>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="info">
+                <div class="avatar">⚡</div>
+                <div>
+                    <div class="name">Adom Electrical AI</div>
+                    <div class="status">● Online</div>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="typing-indicator" id="typingIndicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message..." onkeypress="if(event.key === 'Enter') sendMessage()" />
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
 
 <script>
     function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
     document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
 
-    // Gallery Navigation
+    // ===== EVENT HANDLERS =====
+    function openWhatsApp() {
+        const phoneNumber = '233242862993';
+        const message = 'Hello, I would like to inquire about your electrical services.';
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function makeCall() {
+        const phoneNumber = '0242862993';
+        if (window.innerWidth < 768) {
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            alert(`Please call us at: ${phoneNumber}`);
+        }
+    }
+
+    function sendEmail() {
+        const email = 'markquansah80@gmail.com';
+        const subject = 'Inquiry about Electrical Services';
+        const body = 'Hello Adom Electrical Team,\n\nI would like to inquire about your services.\n\nRegards,';
+        const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(url, '_blank');
+    }
+
+    // ===== GALLERY NAVIGATION =====
     const galleryWrapper = document.getElementById('galleryWrapper');
     const dotsContainer = document.getElementById('galleryDots');
     let currentIndex = 0;
     const totalImages = 40;
     const imagesPerView = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 4;
 
-    // Create dots
     function createDots() {
         const totalDots = Math.ceil(totalImages / imagesPerView);
         dotsContainer.innerHTML = '';
@@ -604,7 +971,6 @@
         }
     }
 
-    // Go to slide
     function goToSlide(index) {
         const totalDots = Math.ceil(totalImages / imagesPerView);
         if (index < 0) index = 0;
@@ -615,7 +981,6 @@
         updateDots();
     }
 
-    // Update dots
     function updateDots() {
         const dots = dotsContainer.querySelectorAll('.dot');
         dots.forEach((dot, i) => {
@@ -623,25 +988,22 @@
         });
     }
 
-    // Scroll gallery function (called by arrow buttons)
     function scrollGallery(direction) {
         const totalDots = Math.ceil(totalImages / imagesPerView);
         goToSlide(currentIndex + direction);
     }
 
-    // Handle window resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             const newImagesPerView = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 4;
             if (newImagesPerView !== imagesPerView) {
-                location.reload(); // Simple reload to recalculate
+                location.reload();
             }
         }, 500);
     });
 
-    // Auto-scroll gallery
     let autoScrollInterval;
     function startAutoScroll() {
         if (autoScrollInterval) clearInterval(autoScrollInterval);
@@ -659,24 +1021,212 @@
         }
     }
 
-    // Initialize gallery
     function initGallery() {
         createDots();
         startAutoScroll();
-
-        // Pause auto-scroll on hover
         galleryWrapper.addEventListener('mouseenter', stopAutoScroll);
         galleryWrapper.addEventListener('mouseleave', startAutoScroll);
         galleryWrapper.addEventListener('touchstart', stopAutoScroll);
         galleryWrapper.addEventListener('touchend', startAutoScroll);
     }
 
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initGallery);
     } else {
         initGallery();
     }
+
+    // ===== CHATBOT FUNCTIONALITY =====
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    // Chatbot Knowledge Base
+    const botResponses = {
+        greeting: [
+            "Hello! 👋 Welcome to Adom Executive Electrical Engineering Company. How can I assist you today?",
+            "Hi there! 👋 I'm the Adom Electrical assistant. What can I help you with?",
+            "Welcome to Adom Executive Electrical! ⚡ How may I help you?"
+        ],
+        services: [
+            "We offer a wide range of electrical services including:\n• Transformer Installations\n• House & Industrial Wiring\n• Solar Installations\n• CCTV Installation\n• Electrical Fence Installation\n• Sales of Electrical Materials\n• Training & Apprenticeship\n\nWould you like more details on any of these?",
+            "Our services include domestic and industrial electrical solutions. We specialize in transformer installations, wiring, solar systems, and training programs. Which service interests you?"
+        ],
+        contact: [
+            "You can reach us at:\n📞 Call: 024 286 2993 / 026 286 2993\n💬 WhatsApp: 024 286 2993 / 026 286 2993\n📧 Email: markquansah80@gmail.com\n📍 Location: Accra Kasoa - Fetteh Mamfam\n\nWe're here to help!",
+            "Contact us anytime!\n• Phone: 024 286 2993 / 026 286 2993\n• WhatsApp: 024 286 2993 / 026 286 2993\n• Email: markquansah80@gmail.com\n• Address: Accra Kasoa - Fetteh Mamfam\n\nWe respond quickly to all inquiries."
+        ],
+        about: [
+            "Adom Executive Electrical Engineering Company was established on 27th January 2018. We provide top-quality electrical services for domestic and industrial clients. Our team is certified, experienced, and dedicated to safety and excellence.",
+            "We are a leading electrical engineering company in Ghana, specializing in transformer installations, wiring, solar systems, and training. Since 2018, we've completed numerous projects for government and private clients."
+        ],
+        pricing: [
+            "We offer competitive pricing for all our services:\n• Basic Package: From GHS 500\n• Professional Package: From GHS 1,500\n• Enterprise Package: From GHS 3,000+\n\nPrices are subject to project scope. Contact us for a detailed quote!",
+            "Our pricing is transparent and affordable. We have packages for small residential projects to large industrial installations. Contact us for a free quote tailored to your needs!"
+        ],
+        projects: [
+            "We've completed many projects including:\n• Kaneshe District Meter Replacement\n• Kasoa District Meter Replacement\n• Dr. Ghansah's Residence\n• Ajumako Road Relocation\n• Industrial Water Production Projects\n\nCheck out our Projects page for more details!",
+            "Our portfolio includes government and private projects. We've done transformer installations, meter replacements, road relocations, and industrial installations. Visit our Projects gallery to see our work!"
+        ],
+        location: [
+            "We are located at:\n📍 Accra Kasoa - Fetteh Mamfam\nDigital Address: CG-1650-3082\n\nWe serve clients across Ghana. Feel free to visit us or contact us for service in your area!",
+            "Our office is in Accra Kasoa - Fetteh Mamfam. We provide services to clients throughout Ghana. Contact us and we'll come to your location!"
+        ],
+        hours: [
+            "Our working hours are:\n• Monday - Friday: 8:00 AM - 6:00 PM\n• Saturday: 9:00 AM - 2:00 PM\n• Sunday: Closed (Emergency Only)\n\nFor emergencies, call us 24/7!",
+            "We're open Monday to Saturday. For emergency electrical issues, our team is available 24/7. Call us anytime!"
+        ],
+        default: [
+            "I'm not sure I understand. Could you please rephrase your question? I can help with information about our services, pricing, projects, contact details, location, and working hours.",
+            "I didn't quite get that. I can assist you with information about our electrical services, pricing, projects, contact information, location, or working hours. What would you like to know?"
+        ]
+    };
+
+    // Bot response logic
+    function getBotResponse(userMessage) {
+        const msg = userMessage.toLowerCase().trim();
+
+        // Greetings
+        if (msg.match(/^(hi|hello|hey|good morning|good afternoon|good evening|howdy)/)) {
+            return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)];
+        }
+
+        // Services
+        if (msg.match(/service|offer|do you do|what.*do|help|repair|install|wiring|solar|transformer|cctv|fence|electrical|contractor/)) {
+            return botResponses.services[Math.floor(Math.random() * botResponses.services.length)];
+        }
+
+        // Contact
+        if (msg.match(/contact|reach|phone|call|whatsapp|email|address|location|find|where|office/)) {
+            return botResponses.contact[Math.floor(Math.random() * botResponses.contact.length)];
+        }
+
+        // About
+        if (msg.match(/about|company|who are you|established|2018|history|background|team/)) {
+            return botResponses.about[Math.floor(Math.random() * botResponses.about.length)];
+        }
+
+        // Pricing
+        if (msg.match(/price|cost|how much|pricing|fee|charge|package|budget|affordable/)) {
+            return botResponses.pricing[Math.floor(Math.random() * botResponses.pricing.length)];
+        }
+
+        // Projects
+        if (msg.match(/project|portfolio|work|done|completed|gallery|installation|meter|relocation/)) {
+            return botResponses.projects[Math.floor(Math.random() * botResponses.projects.length)];
+        }
+
+        // Location
+        if (msg.match(/location|where|find|directions|map|kasoa|fetteh|mamfam|address/)) {
+            return botResponses.location[Math.floor(Math.random() * botResponses.location.length)];
+        }
+
+        // Hours
+        if (msg.match(/hour|time|open|close|schedule|when|availability|working/)) {
+            return botResponses.hours[Math.floor(Math.random() * botResponses.hours.length)];
+        }
+
+        // Thanks
+        if (msg.match(/thank|thanks|appreciate|great|awesome|helpful/)) {
+            return "You're welcome! 😊 Is there anything else I can help you with?";
+        }
+
+        // Goodbye
+        if (msg.match(/bye|goodbye|see you|later|exit|close|end/)) {
+            return "Thank you for chatting! Have a great day! ⚡ Feel free to come back anytime.";
+        }
+
+        // Default
+        return botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
+    }
+
+    // Toggle chatbot
+    function toggleChatbot() {
+        chatbotToggle.classList.toggle('active');
+        chatbotWindow.classList.toggle('open');
+        if (chatbotWindow.classList.contains('open')) {
+            if (chatbotMessages.children.length === 0) {
+                addMessage('bot', "Hello! 👋 Welcome to Adom Executive Electrical Engineering Company. How can I assist you today?");
+            }
+            setTimeout(() => {
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 100);
+        }
+    }
+
+    // Add message to chat
+    function addMessage(type, text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}`;
+        if (type === 'bot') {
+            messageDiv.innerHTML = `<span class="bot-icon">⚡</span> ${text.replace(/\n/g, '<br>')}`;
+        } else {
+            messageDiv.textContent = text;
+        }
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Show typing indicator
+    function showTyping() {
+        typingIndicator.style.display = 'flex';
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Hide typing indicator
+    function hideTyping() {
+        typingIndicator.style.display = 'none';
+    }
+
+    // Send message
+    function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (!message) return;
+
+        // Add user message
+        addMessage('user', message);
+        chatbotInput.value = '';
+
+        // Show typing indicator
+        showTyping();
+
+        // Get bot response after delay
+        const delay = 800 + Math.random() * 1200;
+        setTimeout(() => {
+            hideTyping();
+            const response = getBotResponse(message);
+            addMessage('bot', response);
+        }, delay);
+    }
+
+    // Quick reply suggestions
+    function addQuickReplies() {
+        const quickReplies = ['Services', 'Pricing', 'Contact', 'Projects', 'Location', 'Hours'];
+        const quickDiv = document.createElement('div');
+        quickDiv.className = 'message bot';
+        quickDiv.innerHTML = '<span class="bot-icon">⚡</span> What would you like to know about?<br><br>';
+        quickReplies.forEach(reply => {
+            quickDiv.innerHTML += `<span class="quick-reply" onclick="sendQuickReply('${reply}')">${reply}</span>`;
+        });
+        chatbotMessages.appendChild(quickDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Send quick reply
+    function sendQuickReply(text) {
+        chatbotInput.value = text;
+        sendMessage();
+    }
+
+    // Close chatbot on outside click (mobile friendly)
+    document.addEventListener('click', function(e) {
+        const container = document.querySelector('.chatbot-container');
+        if (container && !container.contains(e.target) && chatbotWindow.classList.contains('open')) {
+            toggleChatbot();
+        }
+    });
 </script>
 </body>
 </html>

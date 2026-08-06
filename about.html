@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Adom Executive Electrical Engineering Company</title>
     <meta name="description" content="Learn about Adom Executive Electrical Engineering Company, established in 2018. We specialize in transformer installations, wiring, solar, and training." />
@@ -20,11 +21,17 @@
         .top-header { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #e9ecef; }
         .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-header .contact-info { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; }
+        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; cursor: pointer; transition: 0.3s; padding: 5px 10px; border-radius: 8px; }
+        .top-header .contact-item:hover { background: rgba(0,0,0,0.05); }
         .top-header .contact-item i { color: #e63946; font-size: 16px; width: 30px; height: 30px; border: 1px solid #e63946; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .top-header .contact-item i:hover { background: #e63946; color: #fff; }
+        .top-header .contact-item:hover i { background: #e63946; color: #fff; }
         .top-header .contact-item strong { font-weight: 700; display: block; font-size: 13px; color: #1a1a2e; }
         .top-header .contact-item span { font-size: 12px; color: #6c757d; }
+        .top-header .contact-item.whatsapp i { color: #25D366; border-color: #25D366; }
+        .top-header .contact-item.whatsapp:hover i { background: #25D366; color: #fff; }
+        .top-header .contact-item.call i { color: #e63946; border-color: #e63946; }
+        .top-header .contact-item.call:hover i { background: #e63946; color: #fff; }
+
         .main-header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .main-header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 50px; }
@@ -190,10 +197,17 @@
         .footer-bottom a { color: #f1c40f; font-weight: 600; }
         .footer-bottom a:hover { text-decoration: underline; }
         .footer-contact-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .footer-contact-item { display: flex; align-items: center; gap: 15px; }
-        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; }
+        .footer-contact-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; padding: 10px 15px; border-radius: 10px; }
+        .footer-contact-item:hover { background: rgba(255,255,255,0.05); }
+        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; transition: 0.3s; }
+        .footer-contact-item:hover .icon { background: rgba(241,196,15,0.1); transform: scale(1.05); }
+        .footer-contact-item .icon.whatsapp-icon { border-color: #25D366; color: #25D366; }
+        .footer-contact-item:hover .icon.whatsapp-icon { background: rgba(37,211,102,0.1); }
+        .footer-contact-item .icon.call-icon { border-color: #e63946; color: #e63946; }
+        .footer-contact-item:hover .icon.call-icon { background: rgba(230,57,70,0.1); }
         .footer-contact-item h4 { color: #fff; font-size: 16px; font-weight: 600; margin: 0; }
         .footer-contact-item p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
+
         .btn-primary { display: inline-block; background: #e63946; color: #fff; padding: 14px 35px; border-radius: 30px; font-weight: 600; font-size: 15px; transition: 0.3s; border: none; cursor: pointer; }
         .btn-primary:hover { background: #c1121f; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(230,57,70,0.3); }
         .tag { display: inline-block; background: rgba(230,57,70,0.1); color: #e63946; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 15px; }
@@ -223,11 +237,26 @@
 
 <!-- TOP HEADER -->
 <header class="top-header">
+        <div class="container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div>
+            </div>
     <div class="container">
         <div class="contact-info">
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div></div>
-            <div class="contact-item"><i class="fas fa-phone-alt"></i><div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div></div>
-            <div class="contact-item"><i class="fas fa-envelope"></i><div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div></div>
+            <div class="contact-item whatsapp" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                <div><strong>024 286 2993 / 026 286 2993</strong><span>WhatsApp Us</span></div>
+            </div>
+            <div class="contact-item call" onclick="makeCall()">
+                <i class="fas fa-phone-alt"></i>
+                <div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div>
+            </div>
+            <div class="contact-item" onclick="sendEmail()">
+                <i class="fas fa-envelope"></i>
+                <div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div>
+            </div>
         </div>
     </div>
 </header>
@@ -241,6 +270,7 @@
             <a href="about.html" class="active">About Us</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
+			<a href="gallery.html">Gallery</a>
             <a href="blog.html">Blog</a>
             <a href="team.html">Team</a>
             <a href="pricing.html">Pricing</a>
@@ -294,7 +324,7 @@
                     <div class="spec-feature"><div class="icon"><i class="fas fa-graduation-cap"></i></div><div><h4>Training Programs</h4><p>Electrical apprenticeship and student training</p></div></div>
                 </div>
             </div>
-            <!-- VIDEO SECTION - Click to Play (GitHub hosted video) -->
+            <!-- VIDEO SECTION - Click to Play -->
             <div style="background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;text-align:center;min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
                 <div class="video-wrapper" id="videoWrapper" onclick="toggleVideo()">
                     <!-- Video Thumbnail -->
@@ -320,9 +350,7 @@
                             preload="metadata"
                             style="width:100%;height:100%;object-fit:cover;background:#000;border-radius:12px;"
                         >
-                            <!-- GitHub hosted video - REPLACE THE URL BELOW -->
                             <source src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/images/promotional-video.mp4" type="video/mp4">
-                            <!-- Fallback if video doesn't load -->
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -360,9 +388,18 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-contact-bar">
-            <div class="footer-contact-item"><div class="icon"><i class="fas fa-phone-alt"></i></div><div><h4>024 286 2993 / 026 286 2993</h4><p>Give Us A Call</p></div></div>
-            <div class="footer-contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><h4>markquansah80@gmail.com</h4><p>Drop Us a Line</p></div></div>
-            <div class="footer-contact-item"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Accra Kasoa - Fetteh Mamfam</h4><p>Digital Address: CG-1650-3082</p></div></div>
+            <div class="footer-contact-item" onclick="openWhatsApp()">
+                <div class="icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Chat on WhatsApp</p></div>
+            </div>
+            <div class="footer-contact-item" onclick="makeCall()">
+                <div class="icon call-icon"><i class="fas fa-phone-alt"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Call Us Now</p></div>
+            </div>
+            <div class="footer-contact-item" onclick="sendEmail()">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div><h4>markquansah80@gmail.com</h4><p>Send Your Mail</p></div>
+            </div>
         </div>
         <div class="footer-grid">
             <div><div class="logo-footer"><img src="images/logo.png" alt="Adom Electrical Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/e63946/ffffff?text=ADOM+ELECTRICAL'" /></div><p>Adom Executive Electrical Engineering Company provides professional electrical services for domestic and industrial clients. Established in 2018.</p><div class="social-icons"><a href="https://web.facebook.com/profile.php?id=61592084150256" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
@@ -370,13 +407,49 @@
             <div><h4>Useful Links</h4><div class="divider"></div><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Disclaimer</a></li><li><a href="#">Support</a></li><li><a href="#">FAQ</a></li></ul></div>
             <div class="newsletter"><h4>Newsletter</h4><div class="divider"></div><p>Subscribe for updates and special offers.</p><input type="email" placeholder="Your Email Address" /><button>Subscribe</button></div>
         </div>
-        <div class="footer-bottom"><div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>. Contact: 024 539 9914 / 054 135 2369</div><div class="right">Domestic &amp; Industrial Electrical Contractor</div></div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>.</div>
+            <div class="right">
+                <span onclick="openWhatsApp()" style="cursor:pointer;color:#25D366;font-weight:600;">WhatsApp</span> | 
+                <span onclick="makeCall()" style="cursor:pointer;color:#e63946;font-weight:600;">Call</span> | 
+                <span onclick="sendEmail()" style="cursor:pointer;color:#f1c40f;font-weight:600;">Email</span>
+            </div>
+        </div>
     </div>
 </footer>
 
 <script>
     function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
     document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
+
+    // ===== EVENT HANDLERS =====
+    
+    // WhatsApp - Opens WhatsApp chat with the business number
+    function openWhatsApp() {
+        const phoneNumber = '233242862993';
+        const message = 'Hello, I would like to inquire about your electrical services.';
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    // Call - Initiates a phone call
+    function makeCall() {
+        const phoneNumber = '0242862993';
+        if (window.innerWidth < 768) {
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            alert(`Please call us at: ${phoneNumber}`);
+        }
+    }
+
+    // Email - Opens email client
+    function sendEmail() {
+        const email = 'markquansah80@gmail.com';
+        const subject = 'Inquiry about Electrical Services';
+        const body = 'Hello Adom Electrical Team,\n\nI would like to inquire about your services.\n\nRegards,';
+        const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(url, '_blank');
+    }
 
     // ===== VIDEO PLAYER FUNCTIONALITY =====
     const videoWrapper = document.getElementById('videoWrapper');
@@ -388,14 +461,12 @@
 
     function toggleVideo() {
         if (!isPlaying) {
-            // Show video container, hide thumbnail and play button
             videoContainer.classList.add('playing');
             videoThumbnail.classList.add('hidden');
             playBtn.style.display = 'none';
             mainVideo.play();
             isPlaying = true;
         } else {
-            // Pause video and show thumbnail again
             mainVideo.pause();
             videoContainer.classList.remove('playing');
             videoThumbnail.classList.remove('hidden');
@@ -412,9 +483,8 @@
         isPlaying = false;
     });
 
-    // Handle video pause (user clicks pause button)
+    // Handle video pause
     mainVideo.addEventListener('pause', function() {
-        // Only reset if video is paused but not ended
         if (!mainVideo.ended) {
             videoContainer.classList.remove('playing');
             videoThumbnail.classList.remove('hidden');
@@ -423,7 +493,7 @@
         }
     });
 
-    // Handle video play (user clicks play button in video controls)
+    // Handle video play
     mainVideo.addEventListener('play', function() {
         videoContainer.classList.add('playing');
         videoThumbnail.classList.add('hidden');
@@ -435,9 +505,6 @@
     document.querySelector('.video-wrapper video')?.addEventListener('click', function(e) {
         e.stopPropagation();
     });
-
-    console.log('Video player initialized. Replace the video URL with your GitHub hosted video.');
-    console.log('Current video source: ' + mainVideo.querySelector('source')?.src);
 </script>
 </body>
 </html>

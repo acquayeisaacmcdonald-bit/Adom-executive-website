@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - Adom Executive Electrical Engineering Company</title>
     <meta name="description" content="Read our latest blog posts about transformer installations, solar energy, electrical safety tips, and more." />
@@ -21,11 +22,16 @@
         .top-header { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #e9ecef; }
         .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-header .contact-info { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; }
+        .top-header .contact-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #495057; cursor: pointer; transition: 0.3s; padding: 5px 10px; border-radius: 8px; }
+        .top-header .contact-item:hover { background: rgba(0,0,0,0.05); }
         .top-header .contact-item i { color: #e63946; font-size: 16px; width: 30px; height: 30px; border: 1px solid #e63946; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .top-header .contact-item i:hover { background: #e63946; color: #fff; }
+        .top-header .contact-item:hover i { background: #e63946; color: #fff; }
         .top-header .contact-item strong { font-weight: 700; display: block; font-size: 13px; color: #1a1a2e; }
         .top-header .contact-item span { font-size: 12px; color: #6c757d; }
+        .top-header .contact-item.whatsapp i { color: #25D366; border-color: #25D366; }
+        .top-header .contact-item.whatsapp:hover i { background: #25D366; color: #fff; }
+        .top-header .contact-item.call i { color: #e63946; border-color: #e63946; }
+        .top-header .contact-item.call:hover i { background: #e63946; color: #fff; }
 
         /* === MAIN HEADER === */
         .main-header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -115,7 +121,7 @@
         }
         .blog-article .btn-back:hover { background: #c1121f; transform: translateY(-2px); }
 
-        /* === BLOG GRID (Index Page Style) === */
+        /* === BLOG GRID === */
         .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .blog-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
         .blog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
@@ -152,8 +158,14 @@
         .footer-bottom a { color: #f1c40f; font-weight: 600; }
         .footer-bottom a:hover { text-decoration: underline; }
         .footer-contact-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .footer-contact-item { display: flex; align-items: center; gap: 15px; }
-        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; }
+        .footer-contact-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; padding: 10px 15px; border-radius: 10px; }
+        .footer-contact-item:hover { background: rgba(255,255,255,0.05); }
+        .footer-contact-item .icon { width: 50px; height: 50px; min-width: 50px; border: 2px solid rgba(241,196,15,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 18px; transition: 0.3s; }
+        .footer-contact-item:hover .icon { background: rgba(241,196,15,0.1); transform: scale(1.05); }
+        .footer-contact-item .icon.whatsapp-icon { border-color: #25D366; color: #25D366; }
+        .footer-contact-item:hover .icon.whatsapp-icon { background: rgba(37,211,102,0.1); }
+        .footer-contact-item .icon.call-icon { border-color: #e63946; color: #e63946; }
+        .footer-contact-item:hover .icon.call-icon { background: rgba(230,57,70,0.1); }
         .footer-contact-item h4 { color: #fff; font-size: 16px; font-weight: 600; margin: 0; }
         .footer-contact-item p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
 
@@ -189,15 +201,15 @@
 <header class="top-header">
     <div class="container">
         <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div><strong>Accra Kasoa - Fetteh Mamfam</strong><span>Digital Address: CG-1650-3082</span></div>
+            <div class="contact-item whatsapp" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                <div><strong>024 286 2993 / 026 286 2993</strong><span>WhatsApp Us</span></div>
             </div>
-            <div class="contact-item">
+            <div class="contact-item call" onclick="makeCall()">
                 <i class="fas fa-phone-alt"></i>
-                <div><strong>024 286 2993 / 026 286 2993</strong><span>Call Us Now</span></div>
+                <div><strong>020 889 9542 / 055 684 5373 </strong><span>Call Us Now</span></div>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" onclick="sendEmail()">
                 <i class="fas fa-envelope"></i>
                 <div><strong>markquansah80@gmail.com</strong><span>Send Your Mail</span></div>
             </div>
@@ -220,6 +232,7 @@
             <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
+			<a href="gallery.html">Gallery</a>
             <a href="blog.html" class="active">Blog</a>
             <a href="team.html">Team</a>
             <a href="pricing.html">Pricing</a>
@@ -419,7 +432,7 @@
             <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
         </article>
 
-        <!-- BLOG CARD GRID VIEW (Optional - shows all posts as cards) -->
+        <!-- BLOG CARD GRID VIEW -->
         <div style="margin-top:60px; border-top:2px solid #e9ecef; padding-top:50px;">
             <h2 style="text-align:center; font-size:28px; font-weight:800; color:#1a1a2e; margin-bottom:15px;">All Blog Posts</h2>
             <p style="text-align:center; color:#6c757d; margin-bottom:40px;">Explore our full collection of articles and insights.</p>
@@ -473,17 +486,17 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-contact-bar">
-            <div class="footer-contact-item">
-                <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                <div><h4>024 286 2993 / 026 286 2993</h4><p>Give Us A Call</p></div>
+            <div class="footer-contact-item" onclick="openWhatsApp()">
+                <div class="icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Chat on WhatsApp</p></div>
             </div>
-            <div class="footer-contact-item">
+            <div class="footer-contact-item" onclick="makeCall()">
+                <div class="icon call-icon"><i class="fas fa-phone-alt"></i></div>
+                <div><h4>024 286 2993 / 026 286 2993</h4><p>Call Us Now</p></div>
+            </div>
+            <div class="footer-contact-item" onclick="sendEmail()">
                 <div class="icon"><i class="fas fa-envelope"></i></div>
-                <div><h4>markquansah80@gmail.com</h4><p>Drop Us a Line</p></div>
-            </div>
-            <div class="footer-contact-item">
-                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div><h4>Accra Kasoa - Fetteh Mamfam</h4><p>Digital Address: CG-1650-3082</p></div>
+                <div><h4>markquansah80@gmail.com</h4><p>Send Your Mail</p></div>
             </div>
         </div>
         <div class="footer-grid">
@@ -535,8 +548,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>. Contact: 024 539 9914 / 054 135 2369</div>
-            <div class="right">Domestic &amp; Industrial Electrical Contractor</div>
+            <div>&copy; 2026 Adom Executive Electrical Engineering Company. All rights reserved. Designed by <a href="https://studios.crisolghana.com" target="_blank">Crisol Studios</a>.</div>
+            <div class="right">
+                <span onclick="openWhatsApp()" style="cursor:pointer;color:#25D366;font-weight:600;">WhatsApp</span> | 
+                <span onclick="makeCall()" style="cursor:pointer;color:#e63946;font-weight:600;">Call</span> | 
+                <span onclick="sendEmail()" style="cursor:pointer;color:#f1c40f;font-weight:600;">Email</span>
+            </div>
         </div>
     </div>
 </footer>
@@ -545,7 +562,32 @@
     function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
     document.querySelectorAll('.nav-menu a').forEach(link => { link.addEventListener('click', () => { document.getElementById('navMenu').classList.remove('open'); }); });
 
-    // Smooth scroll to blog posts when clicking Read More
+    // ===== EVENT HANDLERS =====
+    function openWhatsApp() {
+        const phoneNumber = '233242862993';
+        const message = 'Hello, I would like to inquire about your electrical services.';
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function makeCall() {
+        const phoneNumber = '0242862993';
+        if (window.innerWidth < 768) {
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            alert(`Please call us at: ${phoneNumber}`);
+        }
+    }
+
+    function sendEmail() {
+        const email = 'markquansah80@gmail.com';
+        const subject = 'Inquiry about Electrical Services';
+        const body = 'Hello Adom Electrical Team,\n\nI would like to inquire about your services.\n\nRegards,';
+        const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(url, '_blank');
+    }
+
+    // Smooth scroll to blog posts
     document.querySelectorAll('a[href^="#post"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
